@@ -4,12 +4,19 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build",
+    "test:unit": "vue-cli-service test:unit",
+    "start": "node ./app.js"
   },
   "dependencies": {
+    "axios": "^0.21.1",
+    "bulma": "^0.9.2",
+    "bulma-extensions": "^6.2.7",
+    "bulma-toast": "^2.3.0",
     "core-js": "^3.6.5",
+    "express": "^4.17.1",
     "vue": "^3.0.0",
-    "vue-router": "^4.0.0-0",
+    "vue-router": "^4.0.6",
     "vuex": "^4.0.0-0"
   },
   "devDependencies": {
@@ -18,8 +25,10 @@
     "@vue/cli-plugin-vuex": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "@vue/compiler-sfc": "^3.0.0",
+    "@vue/test-utils": "^2.0.0-0",
     "sass": "^1.26.5",
-    "sass-loader": "^8.0.2"
+    "sass-loader": "^8.0.2",
+    "typescript": "~3.9.3"
   },
   "browserslist": [
     "> 1%",
