@@ -19,10 +19,9 @@ export default createStore({
             if (localStorage.getItem('cart')) {
                 state.cart = JSON.parse(localStorage.getItem('cart'))
             } else {
-                localStorage.setItem('cart', JSON.parse(state.cart))
+                localStorage.setItem('cart', JSON.stringify(state.cart))
                 console.log('cart init error')
             }
-
              //初始user狀態
              if (localStorage.getItem('token')) {
                 state.token = localStorage.getItem('token')

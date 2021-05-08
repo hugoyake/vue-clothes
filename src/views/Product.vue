@@ -4,7 +4,7 @@
         <div class="column is-9">
             <figure class="imaje mb-4">
             <!--  -->
-                <img :src="product.get_thumbnail" alt="" class="product-image">
+                <img src="~@/assets/img/product-img.jpg" alt="" class="product-image">
             </figure> 
 
             <h1 class="title">{{ product.name }}</h1>

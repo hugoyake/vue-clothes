@@ -88,5 +88,6 @@ export default {
     justify-content: flex-end
 
 .bannerWrapTitleWrap > h3
+    display: none
     color: #25313e
 </style>

@@ -2,7 +2,9 @@
     <div class="column is-3">
         <div class="box">
             <figure class="image mb-4">
-                <img v-bind:src="product.get_thumbnail">
+                <!-- GAE 不給從admin上傳照片，改用假照片 -->
+                <!-- <img v-bind:src="product.get_thumbnail"> -->
+                <img src="~@/assets/img/product-img.jpg">
             </figure>
 
             <h3 class="is-size-4">{{ product.name }}</h3>
@@ -13,6 +15,7 @@
     </div>
 </template>
 <script>
+
 export default {
     name: 'ProductBox',
     props: {

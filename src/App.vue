@@ -1,6 +1,6 @@
 <template>
     <div id="wrapper">
-        <nav class="navbar is-dark">
+        <nav class="navbar">
 
             <div class="navbar-brand">
                 <router-link to="/" class="navbar-item">
@@ -62,7 +62,6 @@
                 </div>
             </div>
         </nav>
-
         <!-- loading bar -->
         <teleport to="body">
             <div class="pageloader" :class="{'loader-active': loadingBarStatus}"><span class="title">Clothes</span></div>
@@ -85,7 +84,6 @@
 <script>
 import { computed, reactive, ref, watchEffect } from 'vue'
 import { useStore } from 'vuex';
-import { onBeforeRouteUpdate } from 'vue-router'
 import axios from 'axios'
 
 export default ({
@@ -142,6 +140,36 @@ export default ({
 <style lang="scss">
 @import 'bulma';
 @import 'bulma-extensions';
+
+.navbar {
+    position: fixed;
+    width: 100%;
+
+    .navbar-brand {
+        position: relative;
+        background-color: #363636;
+        z-index: 1;
+
+        strong, span {
+            color: #cccccc;
+        }
+    }
+}
+.navbar-menu {
+    display: block;
+    position: absolute;
+    width: 100%;
+    transform: translateY(-100%);
+    transition: transform .3s ease;
+    z-index: 0;
+}
+.navbar-menu.is-active {
+    transform: translateY(0%);
+}
+
+.section {
+    padding-top: 5em;
+}
 
 .pageloader:not(.is-left-to-right), .pageloader:not(.is-right-to-left) {
     transform: translateY(-0%);
