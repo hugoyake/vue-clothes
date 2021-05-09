@@ -183,7 +183,7 @@ export default {
             }, 0)
         })
 
-        console.log(cartTotalPrice.value)
+
         //第五步: 電子支付api
         //要等到mount在執行，因為create階段#paypal-button-container元件還沒出現，會報錯
         onMounted(() => {

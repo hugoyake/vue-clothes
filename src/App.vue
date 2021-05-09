@@ -84,6 +84,7 @@
 <script>
 import { computed, reactive, ref, watchEffect } from 'vue'
 import { useStore } from 'vuex';
+import { useRoute } from 'vue-router';
 import axios from 'axios'
 
 export default ({
@@ -91,6 +92,7 @@ export default ({
         const showMobileMenu = ref(true)
         const store = useStore()
 
+        const route = useRoute()
         
         //vue3 before create 直接設 setup，所以直接呼叫vuex初始狀態
         store.commit('initializeStore') 
@@ -114,16 +116,20 @@ export default ({
 
             for (let i = 0; i < cart.items.length; i++) {
                 totalLength += parseInt(cart.items[i].quantity)
-                console.log(cart.items[i].quantity)
             }
 
             return totalLength
         })
         
         //只有有loading => mobile menu就收回(app.vue似乎不會啟動router，無法透過Navigation Guards操作，要用watchEffect全局監聽)
+        let currentPath = route.fullPath
         watchEffect(() => {
-            if (store.state.isLoading == true) {
+            //如果route改變
+            if (currentPath !== route.fullPath) {
+                //menu收回
                 showMobileMenu.value = false
+                //重設route
+                currentPath = route.fullPath
             }
         })
 
@@ -144,28 +150,43 @@ export default ({
 .navbar {
     position: fixed;
     width: 100%;
-
+    background-color: #363636;
+    box-shadow: 0 0.5em 0.5em -0.25em rgb(10 10 10 / 10%), 0 0px 0 1px rgb(10 10 10 / 2%);
     .navbar-brand {
         position: relative;
         background-color: #363636;
-        z-index: 1;
+        z-index: 1;        
+    }
 
-        strong, span {
-            color: #cccccc;
-        }
+    .navbar-item, .navbar-burger span {
+        color: #cccccc;
+    }
+
+    .navbar-item:hover {
+        background-color: rgba(0, 0, 0, 0);
+    }
+
+    .navbar-item:focus {
+        color: #cccccc;
     }
 }
-.navbar-menu {
-    display: block;
-    position: absolute;
-    width: 100%;
-    transform: translateY(-100%);
-    transition: transform .3s ease;
-    z-index: 0;
+@media screen and (max-width: 1023px) {
+    .navbar-menu {
+        display: block;
+        position: absolute;
+        width: 100%;
+        transform: translateY(-100%);
+        transition: transform .3s ease;
+        z-index: 0;
+    }
+    .navbar-menu.is-active {
+        transform: translateY(0%);
+    }
+    .navbar .navbar-item:hover {
+        background-color: #fafafa;
+    }
 }
-.navbar-menu.is-active {
-    transform: translateY(0%);
-}
+
 
 .section {
     padding-top: 5em;

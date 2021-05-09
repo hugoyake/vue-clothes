@@ -68,7 +68,7 @@ export default {
                     console.log(error)
                 })                
 
-            await  store.commit('setIsLoading', false)
+            await store.commit('setIsLoading', false)
         }        
 
         return {

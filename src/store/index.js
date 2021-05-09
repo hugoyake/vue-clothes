@@ -10,7 +10,7 @@ export default createStore({
         isAuthenticated: false,
         token: '',
         isLoading: false,
-        mobileMenuStatus: true
+        mobileMenuStatus: false
     },
     mutations: {
         //初始狀態

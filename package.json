@@ -5,8 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "test:unit": "vue-cli-service test:unit",
-    "start": "node ./app.js"
+    "start": "node ./app.js",   
+    "test": "jest"      
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -25,7 +25,7 @@
     "@vue/cli-plugin-vuex": "~4.5.0",
     "@vue/cli-service": "^4.5.13",
     "@vue/compiler-sfc": "^3.0.0",
-    "@vue/test-utils": "^2.0.0-0",
+    "jest": "^26.6.3",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
     "typescript": "~3.9.3"
