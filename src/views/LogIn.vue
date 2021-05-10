@@ -61,8 +61,8 @@ export default {
 
 
         //第二步: 建立表單變數
-        const username = ref('') 
-        const password = ref('')
+        const username = ref('uuuu') 
+        const password = ref('django123')
         //報錯
         const errors = ref([])   
 

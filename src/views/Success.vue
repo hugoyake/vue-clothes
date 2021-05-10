@@ -5,6 +5,8 @@
                 <h1 class="title">Thank you</h1>
 
                 <p>Your order will be processed within 48 hours</p>
+
+                
             </div>
         </div>
     </div>

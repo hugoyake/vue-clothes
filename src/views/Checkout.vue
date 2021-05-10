@@ -59,6 +59,10 @@
                             </div>
                         </div>
 
+                        
+                    </div>
+
+                    <div class="column is-6">
                         <div class="field">
                             <label>E-mail*</label>
                             <div class="control">
@@ -70,29 +74,6 @@
                             <label>Phone*</label>
                             <div class="control">
                                 <input type="text" class="input" v-model="phone">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="column is-6">
-                        <div class="field">
-                            <label>Address*</label>
-                            <div class="control">
-                                <input type="text" class="input" v-model="address">
-                            </div>
-                        </div>
-
-                        <div class="field">
-                            <label>Zip code*</label>
-                            <div class="control">
-                                <input type="text" class="input" v-model="zipcode">
-                            </div>
-                        </div>
-
-                        <div class="field">
-                            <label>Place*</label>
-                            <div class="control">
-                                <input type="text" class="input" v-model="place">
                             </div>
                         </div>
                     </div>
@@ -149,9 +130,6 @@ export default {
         const last_name = ref('')
         const email = ref('')
         const phone = ref('')
-        const address = ref('')
-        const zipcode = ref('')
-        const place = ref('')
         //報錯變數
         const errors = ref([])
 
@@ -228,15 +206,6 @@ export default {
             if (phone.value === '') {
                 errors.value.push('The phone field is missing!')
             }
-            if (address.value === '') {
-                errors.value.push('The address field is missing!')
-            }
-            if (zipcode.value === '') {
-                errors.value.push('The zip code field is missing!')
-            }
-            if (place.value === '') {
-                errors.value.push('The place field is missing!')
-            }
             if (!errors.value.length) {
                 //paypalStatus.value = true    
                 purchaseData()         
@@ -258,9 +227,6 @@ export default {
                 'first_name': first_name.value,
                 'last_name': last_name.value,
                 'email': email.value,
-                'address': address.value,
-                'zipcode': zipcode.value,
-                'place': place.value,
                 'phone': phone.value,
                 'items': items,
             }
@@ -285,9 +251,6 @@ export default {
             last_name,
             email,
             phone,
-            address,
-            zipcode,
-            place,
             errors,
             paypalStatus,
             getItemTotal,

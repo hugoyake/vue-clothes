@@ -36,8 +36,7 @@ export default {
     props: {
         order: Object
     },
-    setup(props) {
-        console.log(props.order)
+    setup() {
         const getItemTotal = (item) => {
             return item.quantity * item.product.price
         }
