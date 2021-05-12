@@ -84,16 +84,19 @@
 <script>
 import { computed, reactive, ref, watchEffect } from 'vue'
 import { useStore } from 'vuex';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import axios from 'axios'
 
 export default ({
     setup() {
         const showMobileMenu = ref(true)
         const store = useStore()
-
+        const router = useRouter()
         const route = useRoute()
-        
+
+        console.log(router, route)
+        console.log(axios.defaults.headers)
+
         //vue3 before create 直接設 setup，所以直接呼叫vuex初始狀態
         store.commit('initializeStore') 
 
@@ -109,7 +112,7 @@ export default ({
             items: []
         })
 
-        cart = store.state.cart    
+        cart = store.state.cart  
 
         const cartTotalLength = computed(() => {
             let totalLength = 0

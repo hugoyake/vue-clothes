@@ -15,9 +15,11 @@ export default createStore({
     mutations: {
         //初始狀態
         initializeStore(state) {
+            //要先把state轉字串再轉物件
+            var parseState = JSON.parse(JSON.stringify(state))
             //初始購物車狀態
             if (localStorage.getItem('cart')) {
-                state.cart = JSON.parse(localStorage.getItem('cart'))
+                parseState.cart = localStorage.getItem('cart')
             } else {
                 localStorage.setItem('cart', JSON.stringify(state.cart))
                 console.log('cart init error')
